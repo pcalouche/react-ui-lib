@@ -1,17 +1,66 @@
 {
-  "name": "react-ui-lib",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
+  "name": "@pcalouche/react-ui-lib",
+  "version": "1.0.0",
+  "description": "Example React UI Library built with Rollup.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "esnext": "dist/lib/index.js",
+  "publishConfig": {
+    "registry": "https://tma1.jfrog.io/tma1/api/npm/npm-local/"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.4.0",
+    "@babel/preset-react": "^7.0.0",
+    "bootstrap": "^4.3.1",
+    "cpx": "^1.5.0",
+    "cross-env": "^5.2.0",
+    "ncp": "^2.0.0",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^5.2.0",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "reactstrap": "^7.1.0",
+    "rimraf": "^2.6.3",
+    "rollup": "^1.7.4",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^9.2.2",
+    "rollup-plugin-copy": "^0.2.3",
+    "rollup-plugin-img": "^1.1.0",
+    "rollup-plugin-node-resolve": "^4.0.1",
+    "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-size-snapshot": "^0.8.0",
+    "rollup-plugin-terser": "^4.0.4",
+    "rollup-plugin-url": "^2.2.0"
+  },
+  "peerDependencies": {
+    "bootstrap": "^4.3.1",
+    "node-sass": "^4.11.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "2.1.8",
+    "reactstrap": "^7.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "scss:watch": "cpx lib/scss/** dist/scss -v -w",
+    "image:watch": "cpx lib/images/*.{png,jpg} dist/images -v -w",
+    "lib:watch": "cpx lib/** dist/lib -v -w",
+    "rollup:watch": "rollup -c -w",
+    "build:watch": "npm-run-all -p scss:watch image:watch lib:watch rollup:watch",
+    "clean": "rimraf dist",
+    "scss:copy": "cpx lib/scss/** dist/scss -v",
+    "image:copy": "cpx lib/images/*.{png,jpg} dist/images -v",
+    "lib:copy": "cpx lib/** dist/lib -v",
+    "rollup:copy": "rollup -c",
+    "build": "npm-run-all -s clean scss:copy image:copy lib:copy rollup:copy",
+    "prepublish": "npm run build",
+    "test": "react-scripts test"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -21,5 +70,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "dependencies": {
+    "node-sass": "^4.11.0",
+    "rollup-plugin-sourcemaps": "^0.4.2"
+  }
 }
