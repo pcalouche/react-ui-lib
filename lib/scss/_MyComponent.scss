@@ -1,3 +1,5 @@
-.Header div {
-  color: blue;
+@import 'variables';
+
+.MyComponent div {
+  color: $textColor;
 }

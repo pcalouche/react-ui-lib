@@ -27,7 +27,7 @@ export default {
     external(),
     nodeResolve(),
     image({
-      limit: 1048576
+      limit: 1024 * 100 //100K
     }),
     babel({
       exclude: 'node_modules/**'
