@@ -9,7 +9,7 @@ import {terser} from 'rollup-plugin-terser';
 const peerDependencies = Object.keys(packageJson.peerDependencies);
 
 export default {
-  input: 'lib/index.js',
+  input: 'src/index.js',
   external: [peerDependencies],
   output: [{
     file: packageJson.main,
@@ -27,7 +27,7 @@ export default {
     external(),
     nodeResolve(),
     image({
-      limit: 1024 * 100 //100K
+      limit: 1024 * 100 //100K max
     }),
     babel({
       exclude: 'node_modules/**'
