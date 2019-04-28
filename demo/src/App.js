@@ -9,7 +9,7 @@ class App extends Component {
         <h1>React UI Library Demo</h1>
         <MyComponent name={'Philip'}/>
         <h4>Referencing an image from the UI library directly</h4>
-        <img src={testImage} alt='Test image' height='500' width='500'/>
+        <img src={testImage} alt='Test' height='500' width='500'/>
       </div>
     );
   }
