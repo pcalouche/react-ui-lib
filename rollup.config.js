@@ -1,13 +1,13 @@
-import packageJson from './package.json';
 import babel from 'rollup-plugin-babel';
 import image from 'rollup-plugin-img';
-import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import nodeResolve from 'rollup-plugin-node-resolve';
+import commonjs from 'rollup-plugin-commonjs';
 import {sizeSnapshot} from 'rollup-plugin-size-snapshot';
 import {terser} from 'rollup-plugin-terser';
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import packageJson from './package.json';
 
 const peerDependencies = Object.keys(packageJson.peerDependencies);
-console.info('peerDependencies', peerDependencies);
 
 export default {
   input: 'src/index.js',
@@ -26,12 +26,15 @@ export default {
   },
   plugins: [
     peerDepsExternal(),
-    babel({
-      exclude: 'node_modules/**'
+    commonjs({
+      include: 'node_modules/**'
     }),
     nodeResolve(),
     image({
       limit: 1024 * 100 //100K max
+    }),
+    babel({
+      exclude: 'node_modules/**'
     }),
     sizeSnapshot(),
     terser()
