@@ -11,9 +11,6 @@
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "esnext": "dist/src/index.js",
-  "publishConfig": {
-    "registry": "https://tma1.jfrog.io/tma1/api/npm/npm-local/"
-  },
   "files": [
     "dist"
   ],
