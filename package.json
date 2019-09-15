@@ -2,6 +2,12 @@
   "name": "@pcalouche/react-ui-lib",
   "version": "1.0.0",
   "description": "Example React UI Library built with Rollup.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pcalouche/react-ui-lib.git"
+  },
+  "author": "Philip Calouche",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "esnext": "dist/src/index.js",
@@ -12,35 +18,36 @@
     "dist"
   ],
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.4",
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/preset-env": "^7.6.0",
     "@babel/preset-react": "^7.0.0",
     "bootstrap": "^4.3.1",
     "cpx": "^1.5.0",
-    "cross-env": "^5.2.0",
+    "cross-env": "^5.2.1",
     "npm-run-all": "^4.1.5",
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "2.1.8",
-    "reactstrap": "^8.0.0",
-    "rimraf": "^2.6.3",
-    "rollup": "^1.13.1",
-    "rollup-plugin-babel": "4.3.2",
-    "rollup-plugin-commonjs": "^9.3.4",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "reactstrap": "^8.0.1",
+    "rimraf": "^2.7.1",
+    "rollup": "^1.21.3",
+    "rollup-plugin-babel": "4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-img": "^1.1.0",
     "rollup-plugin-node-resolve": "^4.2.4",
     "rollup-plugin-peer-deps-external": "^2.2.0",
-    "rollup-plugin-size-snapshot": "^0.9.0",
-    "rollup-plugin-terser": "^5.0.0"
+    "rollup-plugin-size-snapshot": "^0.10.0",
+    "rollup-plugin-terser": "^5.1.2"
   },
   "peerDependencies": {
     "bootstrap": "^4.3.1",
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "2.1.8",
-    "reactstrap": "^8.0.0"
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "reactstrap": "^8.0.1"
   },
   "scripts": {
     "scss:watch": "cpx \"src/scss/**\" src/scss -v -w",
@@ -54,8 +61,7 @@
     "src:copy": "cpx \"src/**\" dist/src -v",
     "rollup:build": "rollup -c",
     "build": "npm-run-all -s clean scss:copy image:copy src:copy rollup:build",
-    "prepublishOnly": "npm run build",
-    "test": "react-scripts test"
+    "prepublishOnly": "npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"
