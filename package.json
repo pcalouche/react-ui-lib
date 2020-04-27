@@ -31,7 +31,7 @@
     "react-dom": "16.13.1",
     "reactstrap": "8.4.1",
     "rimraf": "2.7.1",
-    "rollup": "2.7.2",
+    "rollup": "2.7.3",
     "rollup-plugin-babel": "4.4.0",
     "rollup-plugin-img": "1.1.0",
     "rollup-plugin-size-snapshot": "0.11.0",
