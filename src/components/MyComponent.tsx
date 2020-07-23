@@ -3,7 +3,7 @@ import {Alert} from 'reactstrap';
 
 import {testImage} from '../images';
 
-type   Props = {
+type Props = {
   name: string
 }
 
@@ -18,9 +18,5 @@ const MyComponent: React.FC<Props> = (props: Props) => {
     </div>
   );
 };
-
-// MyComponent.propTypes = {
-//   name: PropTypes.string.isRequired
-// };
 
 export default MyComponent;
