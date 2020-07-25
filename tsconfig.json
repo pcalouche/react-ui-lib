@@ -11,7 +11,8 @@
     "moduleResolution": "node",
     "declaration": true,
     "sourceMap": true,
-    "allowJs": false,
+    // set to false if your library is only TypeScript
+    "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -27,7 +28,6 @@
     "src/**/*"
   ],
   "exclude": [
-    "src/**/*.test.ts",
-    "src/**/*.test.tsx"
+    "src/**/*.test.*"
   ]
 }

@@ -10,10 +10,10 @@
   "author": "Philip Calouche",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "types": "dist/index.d.ts",
   "devDependencies": {
     "@babel/core": "7.10.5",
     "@babel/plugin-transform-runtime": "7.10.5",
@@ -34,10 +34,10 @@
     "react-dom": "16.13.1",
     "reactstrap": "8.4.1",
     "rimraf": "2.7.1",
-    "rollup": "2.22.2",
+    "rollup": "2.23.0",
     "rollup-plugin-size-snapshot": "0.12.0",
     "rollup-plugin-typescript2": "0.27.1",
-    "typescript": "3.9.6"
+    "typescript": "3.9.7"
   },
   "peerDependencies": {
     "bootstrap": "^4.4.1",
@@ -47,8 +47,6 @@
   },
   "scripts": {
     "scss:watch": "cpx \"src/scss/**\" dist/scss -v -w",
-    "image:watch": "cpx \"src/images/*.{png,jpg}\" dist/images -v -w",
-    "src:watch": "cpx \"src/**\" dist/src -v -w",
     "rollup:watch": "rollup -c -w",
     "build:watch": "npm run clean && npm-run-all -p scss:watch rollup:watch",
     "clean": "rimraf dist",
