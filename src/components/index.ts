@@ -1,5 +1,5 @@
-import MyComponent from './MyComponent';
+import ClickCounter from './ClickCounter';
 
 export {
-  MyComponent
+  ClickCounter
 };

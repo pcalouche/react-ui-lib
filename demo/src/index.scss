@@ -1,1 +1,3 @@
-@import '~@pcalouche/react-ui-lib/dist/scss/global';
+// You're welcome to override variables declared in the custom theme
+$buttonColor: grey;
+@import '~@pcalouche/react-ui-lib/dist/scss/custom-theme';
