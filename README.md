@@ -1,23 +1,20 @@
 # React UI Library
 
 This is proof of concept for creating React JS library. The library can be all TypeScript, all JavaScript, 
-or a mix of both. It uses the Bootstrap library, but this is not a requirement. You could remove all the 
-Bootstrap code and dependencies if you choose.
+or a mix of both. It also shows how you can manage a SCSS theme in your library for consumption across
+applications. You can remove this if you don't have a need for this.
 
 It demonstrates the following:
 
-1. Using [Rollup.js](https://rollupjs.org/guide/en) to build ES and Common JS modules
-1. Using [Bootstrap](https://getbootstrap.com/) and [Reactstrap](https://reactstrap.github.io/) 
-to help build its custom components
-1. Bundling images
-1. A pattern for organizing and styling UI components with SCSS
-1. A pattern for loading and customizing Bootstrap's SCSS
-1. A demo application that uses the library
+1. Using [Rollup.js](https://rollupjs.org/guide/en) to build ES and Common JS modules.
+1. Bundling images in a library.
+1. Demonstrates one approach for managing a CSS theme across consumers of this library. 
+1. A demo application that uses the library.
 1. NPM scripts for live reload of the library during development.
 
 ## How to use.
 
-This library isn't published publicly, but can be played with locally.  Here are the steps:
+This library isn't published publicly, but can be played with locally. Here are the steps:
 
 1. Run `npm i` in the root folder.
 1. Run `npm link in the root folder` to add the library to your local npm modules.
@@ -29,8 +26,21 @@ This library isn't published publicly, but can be played with locally.  Here are
 Run `npm run build` from the root folder to build the library. This creates `dist` folder which contains
 everything that would be published to npm.
 
-**Note:** If this library was available in a repository, demo's package.json should include 
+**Note:** If this library was available in a repository, demo's package.json would include 
 `"@pcalouche/react-ui-lib": "1.0.0"` as a dependency.
+
+## Avoiding Multiple Instances Warning With React Hooks
+
+When using `npm link @pcalouche/react-ui-lib` to develop your library with the demo or another 
+consuming application you may run across React invalid hook call errors. This happens when
+you're using React hooks in your consuming application. The solution is to give your consuming 
+application a hint on which instance of React to use when you have are using `npm link`. This
+is not an issue when you install the library from a npm repository. Only when using `npm link`. 
+The demo uses Create React App. I don't want to eject the config because I like the default setup 
+it provides for me. Thankfully [Craco - Create React App Configuration Override](https://github.com/gsoft-inc/craco) 
+exists. See the script configuration in `package.json` and the `craco.config.js` on how it's
+configured. If you're using your own webpack configuration that's ok too. You'll just need
+to add some `alias` references to your webpack config.
 
 ## TypeScript Only Library Steps
 
@@ -42,6 +52,7 @@ everything that would be published to npm.
    - @rollup/plugin-babel
 1. Remove the babel plugin configuration in `rollup.js`
 1. Set `allowJs` to false in `tsconfig.json`.
+1. Name the library how you want to in `package.json`
 
 ## JavaScript Only Library Steps
 
@@ -52,10 +63,11 @@ everything that would be published to npm.
 1. Delete `tsconfig.json`.
 1. Delete `custom.d.ts`
 1. Convert ts and tsx files to js.
+1. Name the library how you want to in `package.json`
 
 ## Mix of TypeScript and JavaScript Library Steps
 
 Useful if you currently have a JavaScript library and want to gradually migrate it to TypeScript.
 
-1. No changes required!
+1. Name the library how you want to in `package.json`. No other changes required!
 

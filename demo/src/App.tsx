@@ -1,14 +1,21 @@
 import React from 'react';
 
-import {MyComponent, testImage} from '@pcalouche/react-ui-lib';
+import {ClickCounter, testImage} from '@pcalouche/react-ui-lib';
 
 const App = () => {
   return (
     <div className="App">
-      <h1>React UI Library Demo</h1>
-      <MyComponent name={'Philip'}/>
-      <h4>Referencing an image from the UI library directly</h4>
-      <img src={testImage} alt="Test" height="500" width="500"/>
+      <div style={{textAlign: 'center'}}>
+        <h1>React UI Library Demo</h1>
+        <h3>
+          Using the ClickCounter component from the library. We have overridden <code>$buttonColor</code> in this app's <code>index.scss</code>.
+        </h3>
+        <div>
+          <ClickCounter/>
+        </div>
+        <h3>Using the image from the UI library</h3>
+        <img src={testImage} alt="Test" width="10%"/>
+      </div>
     </div>
   );
 };
