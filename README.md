@@ -1,6 +1,6 @@
 # React UI Library
 
-This is proof of concept for creating React JS library. The library can be all TypeScript, all JavaScript, 
+This is template for creating React JS library. The library can be all TypeScript, all JavaScript, 
 or a mix of both. It also shows how you can manage a SCSS theme in your library for consumption across
 applications. You can remove this if you don't have a need for this.
 
@@ -14,10 +14,10 @@ It demonstrates the following:
 
 ## How to use.
 
-This library isn't published publicly, but can be played with locally. Here are the steps:
+This library isn't published publicly, but can be experimented with locally. Here are the steps:
 
 1. Run `npm i` in the root folder.
-1. Run `npm link in the root folder` to add the library to your local npm modules.
+1. Run `npm link` to add the library to your local npm modules.
 1. Run `npm run build:watch` to build the library and watch for changes.
 1. Run `npm i` in the demo folder.
 1. Run `npm link @pcalouche/react-ui-lib` in the demo folder to link the library to your local npm modules.
@@ -33,14 +33,18 @@ everything that would be published to npm.
 
 When using `npm link @pcalouche/react-ui-lib` to develop your library with the demo or another 
 consuming application you may run across React invalid hook call errors. This happens when
-you're using React hooks in your consuming application. The solution is to give your consuming 
-application a hint on which instance of React to use when you have are using `npm link`. This
-is not an issue when you install the library from a npm repository. Only when using `npm link`. 
-The demo uses Create React App. I don't want to eject the config because I like the default setup 
-it provides for me. Thankfully [Craco - Create React App Configuration Override](https://github.com/gsoft-inc/craco) 
-exists. See the script configuration in `package.json` and the `craco.config.js` on how it's
-configured. If you're using your own webpack configuration that's ok too. You'll just need
-to add some `alias` references to your webpack config.
+you're using React hooks in your consuming application. The application becomes confused between 
+the React installed under `node_modules` folder and React under the `node_modules/@pcalouche-react-ui-lib/node_modules` 
+folder. The latter is created by the `npm link @pcalouche/react-ui-lib` command. The solution is to give 
+your consuming application a hint on which instance of React to use when you have are using `npm link`. This 
+is not an issue when you install the library from a npm repository. Only when using `npm link`. The demo uses 
+Create React App. I don't want to eject the config because I like the default setup it provides for me. 
+Thankfully [Craco - Create React App Configuration Override](https://github.com/gsoft-inc/craco) 
+exists. See the script configuration in `package.json` and the `craco.config.js` on how it's configured. 
+If you're using your own webpack configuration and not Create React App, that's ok too. You'll just need 
+to add an `alias` references to your webpack config.  You'll need to do this for any other library that you 
+bring that has React hooks if your application accesses those hooks. Some common ones are `react-router-dom`
+and `formik`.
 
 ## TypeScript Only Library Steps
 
