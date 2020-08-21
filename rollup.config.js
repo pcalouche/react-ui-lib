@@ -10,6 +10,8 @@ export default [
   {
     input: 'src/index.ts',
     external: [
+      // Remove this line entirely if your library is 100% TypeScript, otherwise uncomment it.
+      // /@babel\/runtime/, // Needed because of this issue https://github.com/rollup/plugins/issues/475
       ...Object.keys(packageJson.devDependencies)
     ],
     output: [
@@ -18,7 +20,8 @@ export default [
     ],
     plugins: [
       nodeResolve(),
-      // Remove babel plugin and uninstall @rollup/plugin-babel if your library is 100% TypeScript
+      // Remove babel plugin and uninstall @babel/core,  @babel/plugin-transform-runtime, @babel/preset-env,
+      // @babel/preset-react, @rollup/plugin-babel from package.json if your library is 100% TypeScript.
       // babel({
       //   babelHelpers: 'runtime',
       //   babelrc: false,

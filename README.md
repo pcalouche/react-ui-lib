@@ -32,8 +32,11 @@ everything that would be published to npm.
 ## Avoiding Multiple Instances Warning With React Hooks
 
 When using `npm link @pcalouche/react-ui-lib` to develop your library with the demo or another 
-consuming application you may run across React invalid hook call errors. This happens when
-you're using React hooks in your consuming application. The application becomes confused between 
+consuming application you may run across React invalid hook call errors. 
+
+![React Invalid Hook call](./react-invalid-hook-call.png)
+
+This happens when you're using React hooks in your consuming application. The application becomes confused between 
 the React installed under `node_modules` folder and React under the `node_modules/@pcalouche-react-ui-lib/node_modules` 
 folder. The latter is created by the `npm link @pcalouche/react-ui-lib` command. The solution is to give 
 your consuming application a hint on which instance of React to use when you have are using `npm link`. This 
