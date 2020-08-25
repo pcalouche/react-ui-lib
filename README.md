@@ -64,8 +64,8 @@ and `formik`.
 ## JavaScript Only Library Steps
 
 1. Remove the following dev dependencies from `package.json`:
-  - rollup-plugin-typescript2
-  - typescript
+    - rollup-plugin-typescript2
+    - typescript
 1. Remove the `types` key in package.json
 1. Delete `tsconfig.json`.
 1. Delete `custom.d.ts`
