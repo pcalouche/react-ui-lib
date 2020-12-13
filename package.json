@@ -39,7 +39,7 @@
     "rollup:watch": "rollup -c -w",
     "build:watch": "npm run clean && npm-run-all -p scss:watch rollup:watch",
     "clean": "rimraf dist",
-    "scss:build": "cpx \"src/scss/**'\" dist/scss -v",
+    "scss:build": "cpx \"src/scss/**\" dist/scss -v",
     "src:build": "cpx \"src/**\" dist/src -v",
     "rollup:build": "rollup -c",
     "build": "npm run clean && npm-run-all -s clean scss:build rollup:build",
