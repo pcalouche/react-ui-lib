@@ -16,11 +16,10 @@
   ],
   "devDependencies": {
     "@rollup/plugin-image": "^2.0.6",
-    "@rollup/plugin-node-resolve": "^11.2.0",
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^13.0.10",
-    "@types/jest": "^26.0.21",
+    "@rollup/plugin-node-resolve": "^11.2.1",
+    "@testing-library/jest-dom": "^5.11.10",
+    "@testing-library/react": "^11.2.6",
+    "@testing-library/user-event": "^13.1.1",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
     "cpx": "^1.5.0",
@@ -47,10 +46,12 @@
     "rollup:watch": "rollup -c -w",
     "build:watch": "npm run clean && npm-run-all -p scss:watch rollup:watch",
     "clean": "rimraf dist",
+    "test": "jest",
+    "testWatch": "jest --watch",
     "scss:build": "cpx \"src/scss/**\" dist/scss -v",
     "src:build": "cpx \"src/**\" dist/src -v",
     "rollup:build": "rollup -c",
-    "build": "npm run clean && npm-run-all -s clean scss:build rollup:build",
+    "build": "npm run test && npm run clean && npm-run-all -s clean scss:build rollup:build",
     "prepublishOnly": "npm run build"
   },
   "jest": {
@@ -59,6 +60,9 @@
     "moduleNameMapper": {
       "\\.(css|scss|less)$": "identity-obj-proxy"
     },
+    "setupFilesAfterEnv": [
+      "./setupTests.ts"
+    ],
     "verbose": true
   }
 }
