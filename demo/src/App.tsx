@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {BlockHighlight, ClickCounter, testImage} from '@pcalouche/react-ui-lib';
 
 const App = () => {

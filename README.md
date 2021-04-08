@@ -11,6 +11,7 @@ It demonstrates the following:
 1. Demonstrates one approach for managing a CSS theme across consumers of this library.
 1. A demo application that uses the library.
 1. NPM scripts for live reload of the library during development.
+1. Use of `jest` and `@testing/library` for React.
 
 I try to update the dependencies frequently, but if you need to use older version of things like React, you should be
 able to downgrade.

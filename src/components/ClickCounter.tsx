@@ -4,7 +4,10 @@ const ClickCounter: React.FC = () => {
   const [count, setCount] = useState(0);
 
   return (
-    <button className="ClickCounter" onClick={() => setCount(count => count + 1)}>Click Count: {count}</button>
+    <button className="ClickCounter"
+            onClick={() => setCount(count => count + 1)}>
+      Click Count: {count}
+    </button>
   );
 };
 
