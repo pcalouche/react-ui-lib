@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 
 import './BlockHighlight.scss';
 
-const BlockHighlight: React.FC = ({
-                                    children
-                                  }) => {
+type Props = {
+  children: ReactNode
+}
+
+const BlockHighlight = ({children}: Props) => {
 
   return (
     <div className="BlockHighlight">{children}</div>
