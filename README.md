@@ -47,7 +47,7 @@ application a hint on which instance of React to use when you have are using `np
 install the library from a npm repository. Only when using `npm link`. The demo uses Create React App. I don't want to
 eject the config because I like the default setup it provides for me.
 Thankfully [Craco - Create React App Configuration Override](https://github.com/gsoft-inc/craco)
-exists. See the script configuration in `package.json` and the `craco.config.js` on how it's configured. If you're using
+exists. See the script configuration in `package.json` and the `craco.config.ts` on how it's configured. If you're using
 your own webpack configuration and not Create React App, that's ok too. You'll just need to add an `alias` references to
 your webpack config. You'll need to do this for any other library that you bring that has React hooks if your
 application accesses those hooks. Some common ones are `react-router-dom`
